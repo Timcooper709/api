@@ -5,6 +5,15 @@ name = "pypi"
 
 [packages]
 django = "*"
+psycopg2-binary = "*"
+djoser = "*"
+djangorestframework-simplejwt = "*"
+djangorestframework = "*"
+markdown = "*"
+django-filter = "*"
+django-extensions = "*"
+django-debug-toolbar = "*"
+django-environ = "*"
 
 [dev-packages]
 
