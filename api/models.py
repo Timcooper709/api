@@ -40,9 +40,11 @@ class Shipping(models.Model):
     quantity_shipped = models.IntegerField(null=True, blank=True)   
     tracking_number  = models.CharField(max_length=50, null=True, blank=True) 
     item             = models.ForeignKey('Item', related_name='shipments', on_delete=models.CASCADE, null=True,blank=True) 
+    date             = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
-        return self.sent_to      
+        return f"{self.quantity_shipped} {self.item} was shipped {self.date}"  
+
 
 
 
