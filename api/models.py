@@ -10,6 +10,13 @@ class User(AbstractUser):
     def __str__(self):
         return self.username
 
+class Aisle(models.Model):
+    title            = models.IntegerField(max_length=300, null=True, blank=True)
+
+    def __str__(self):  
+        return self.title  
+
+
 class Item(models.Model):
     product          = models.CharField(max_length=300, null=True, blank=True)      
     manufacturer     = models.CharField(max_length=300, null=True, blank=True)
@@ -20,3 +27,7 @@ class Item(models.Model):
 
     def __str__ (self):
         return self.product
+
+
+
+
