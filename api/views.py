@@ -16,6 +16,7 @@ class ItemViewSet(ModelViewSet):
     #     category = get_object_or_404(Category,pk=self.kwargs["category_pk"])
     #     serializer.save(category=category)
 
+# When you make a request for a list of items the ItemListSerializer is called.
     def get_serializer_class(self):
         if self.action in ['list']:
             return ItemListSerializer
