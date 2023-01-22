@@ -16,6 +16,14 @@ class Aisle(models.Model):
     def __str__(self):  
         return self.title  
 
+class Category(models.Model):
+    title     = models.IntegerField(max_length=300, null=True, blank=True)
+    aisle     = models.ForeignKey('Aisle', related_name='categories', on_delete=models.CASCADE, null=True,blank=True)
+
+
+    def __str__(self):
+        return self.title        
+
 
 class Item(models.Model):
     product          = models.CharField(max_length=300, null=True, blank=True)      
