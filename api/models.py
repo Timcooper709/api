@@ -10,15 +10,15 @@ class User(AbstractUser):
     def __str__(self):
         return self.username
 
-class Aisle(models.Model):
-    title            = models.CharField(max_length=10, null=True, blank=True)
-    def __str__(self):  
-        return self.title  
+#class Aisle(models.Model):
+ #   title            = models.CharField(max_length=10, null=True, blank=True)
+  #  def __str__(self):  
+   #     return self.title  
 
 class Category(models.Model):
     title     = models.CharField(max_length=50, null=True, blank=True)
     # foreginkey relates one model to another.
-    aisle     = models.ForeignKey('Aisle', related_name='categories', on_delete=models.CASCADE, null=True,blank=True)
+    #aisle     = models.ForeignKey('Aisle', related_name='categories', on_delete=models.CASCADE, null=True,blank=True)
 
     # This is why I see the category title in admin.
     def __str__(self):
