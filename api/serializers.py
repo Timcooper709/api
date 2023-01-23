@@ -1,5 +1,5 @@
 from rest_framework import serializers 
-from .models import Item
+from .models import Item, Category
 
 
 class ItemSerializer(serializers.ModelSerializer):
@@ -14,4 +14,11 @@ class ItemListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Item
-        fields = ['pk', 'product', 'total_quantity', 'category']       
+        fields = ['pk', 'product', 'total_quantity', 'category']   
+
+class CategorySerializer(serializers.ModelSerializer):  
+    items = serializers.PrimaryKeyRelatedField(read_only=True, many=True) 
+
+    class Meta:
+        model = Category
+        fields = ['pk', 'title', 'items']            
