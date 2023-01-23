@@ -22,8 +22,7 @@ class Category(models.Model):
 
     # This is why I see the category title in admin.
     def __str__(self):
-        return self.title        
-
+        return self.title       
 
 class Item(models.Model):
     product          = models.CharField(max_length=300, null=True, blank=True)      
