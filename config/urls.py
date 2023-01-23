@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from api.router import router
+from api import views as api_views
 
 
 urlpatterns = [
@@ -25,5 +26,5 @@ urlpatterns = [
     path('auth/', include('djoser.urls.authtoken')),
     path('__debug__/', include('debug_toolbar.urls')),
     path('api/', include(router.urls)),
-
+    path('api/categories/<int:category_pk>/items/',api_views.ItemListCreateView.as_view(),name="category_items",),
 ]
