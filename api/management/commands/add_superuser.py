@@ -3,7 +3,7 @@ import os
 from django.core.management.base import BaseCommand
 
 from api.models import User # Change this to reflect your app's name and name of your custom User model
-from config.settings import settings # Change this to reflect your app's name
+from config import settings # Change this to reflect your app's name
 
 
 # To run this management command:
