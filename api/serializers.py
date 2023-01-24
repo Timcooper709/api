@@ -28,4 +28,4 @@ class ShipmentListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Shipment
-        fields = ['pk', 'item', 'quantity_shipped', 'tracking_number', 'sent_to', 'date']                     
+        fields = ['pk', 'item', 'quantity_shipped', 'date', 'sent_to', 'tracking_number']                     
