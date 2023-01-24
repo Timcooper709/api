@@ -27,4 +27,5 @@ urlpatterns = [
     path('__debug__/', include('debug_toolbar.urls')),
     path('api/', include(router.urls)),
     path('api/categories/<int:category_pk>/items/',api_views.ItemListCreateView.as_view(),name="category_items",),
+    path('api/items/<int:item_pk>/shipments/',api_views.ShipmentListCreateView.as_view(),name="item_shipments",),
 ]

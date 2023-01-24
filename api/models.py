@@ -36,7 +36,7 @@ class Item(models.Model):
     def __str__ (self):
         return self.product
 
-class Shipping(models.Model):
+class Shipment(models.Model):
     sent_to          = models.TextField(null=True, blank=True)
     quantity_shipped = models.IntegerField(null=True, blank=True)   
     tracking_number  = models.CharField(max_length=50, null=True, blank=True) 
