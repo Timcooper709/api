@@ -26,6 +26,8 @@ urlpatterns = [
     path('auth/', include('djoser.urls.authtoken')),
     path('__debug__/', include('debug_toolbar.urls')),
     path('api/', include(router.urls)),
-    path('api/categories/<int:category_pk>/items/',api_views.ItemListCreateView.as_view(),name="category_items",),
-    path('api/items/<int:item_pk>/shipments/',api_views.ShipmentListCreateView.as_view(),name="item_shipments",),
+    path('api/categories/<int:category_pk>/items/',api_views.ItemListCreateView.as_view(),name="category_items"),
+    path('api/items/<int:item_pk>/shipments/',api_views.ShipmentListCreateView.as_view(),name="item_shipments"),
+    path('api/shipments/',api_views.ShipmentListView.as_view(),name="shipments"),
+    path('api/items/lowstock/',api_views.LowStockListView.as_view(),name="lowstock"),
 ]

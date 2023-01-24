@@ -37,7 +37,9 @@ class Item(models.Model):
         return self.product
 
 class Shipment(models.Model):
-    sent_to          = models.TextField(null=True, blank=True)
+    attn             = models.CharField(max_length=200, null=True, blank=True)
+    address_line_one = models.CharField(max_length=200, null=True, blank=True)
+    address_line_two = models.CharField(max_length=200, null=True, blank=True)
     quantity_shipped = models.IntegerField(null=True, blank=True)   
     tracking_number  = models.CharField(max_length=50, null=True, blank=True) 
      # foreginkey relates one model to another.

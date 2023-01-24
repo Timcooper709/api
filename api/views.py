@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.generics import get_object_or_404, ListCreateAPIView
+from rest_framework.generics import get_object_or_404, ListCreateAPIView, ListAPIView
 from .models import Item, Category, Shipment
 from .serializers import ItemSerializer, ItemListSerializer, CategorySerializer, ShipmentListSerializer
+from rest_framework.decorators import action
 # Create your views here.
 
 
@@ -15,6 +16,12 @@ class ItemViewSet(ModelViewSet):
         if self.action in ['list']:
             return ItemListSerializer
         return super().get_serializer_class()
+
+    #@action(detail=False,methods=["get"])
+    #def lowstock(self,request):
+    #    items = self.get_queryset().filter(total_quantity<100)
+    #    serializer = self.get_serializer(items, many=True)
+    #    return Response(serializer.data,status=status.HTTP_200_ok)    
 
 class ItemListCreateView(ListCreateAPIView):
     serializer_class = ItemSerializer
@@ -40,3 +47,13 @@ class ShipmentListCreateView(ListCreateAPIView):
         item = get_object_or_404(Item, pk=self.kwargs["item_pk"])
         serializer.save(item=item)
 
+class ShipmentListView(ListAPIView):
+    queryset = Shipment.objects.all()
+    serializer_class = ShipmentListSerializer
+
+class LowStockListView(ListAPIView):
+    queryset = Item.objects.all()
+    serializer_class = ItemListSerializer 
+
+    def get_queryset(self):
+        return Item.objects.filter(total_quantity<100)   
