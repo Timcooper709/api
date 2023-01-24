@@ -56,4 +56,4 @@ class LowStockListView(ListAPIView):
     serializer_class = ItemListSerializer 
 
     def get_queryset(self):
-        return Item.objects.filter(total_quantity<100)   
+        return Item.objects.filter(amount__lt=100)   
