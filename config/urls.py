@@ -29,6 +29,7 @@ urlpatterns = [
     path('api/categories/<int:category_pk>/items/',api_views.ItemListCreateView.as_view(),name="add_items"),
     path('api/items/<int:item_pk>/shipments/',api_views.ShipmentListCreateView.as_view(),name="add_shipments"),
     path('api/shipments/',api_views.ShipmentListView.as_view(),name="shipments"),
+    path('api/shipments',api_views.ShipmentListView.as_view(),name="shipments"),
     path('api/lowstock/',api_views.LowStockListView.as_view(),name="lowstock"),
     path('api/lowstock',api_views.LowStockListView.as_view(),name="lowstock"),
 ]
