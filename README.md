@@ -13,7 +13,7 @@ NOTE: API Root is /api/
 |GET|   [/auth/users/](#all_users)|List of all users|
 |POST|  [/auth/token/logout/](#logout-user)|Logout user|
 |GET|   [/api/items/](#list-of-all-items)|List of all items|
-|GET|   [/api/items/<pk>/](#details-of-one-item)|Detail of one item
+|GET|   [/api/items/<int:item_pk>/](#details-of-one-item)|Detail of one item
 |POST|  [/api/categories/<int:category_pk>/items/](#create-a-item)|Create a item
 |DELETE|[/api/items/<int:item_pk>/](#delete-a-item)|Delete a item
 |PATCH| [/api/items/<int:item_pk>/](#update-a-item)|Update a item
