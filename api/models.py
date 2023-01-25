@@ -45,10 +45,18 @@ class Shipment(models.Model):
      # foreginkey relates one model to another.
     item             = models.ForeignKey('Item', related_name='shipments', on_delete=models.CASCADE, null=True,blank=True) 
     date             = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-
+    remaining_after_shipment = models.IntegerField(null=True, blank=True)  
+    
     def __str__(self):
         # This is an f string 
         return f"{self.quantity_shipped} {self.item} was shipped {self.date}"  
+
+    @property
+    def remaining_after_shipment(self):
+        x = self.item.amount - self.quantity_shipped
+        return x
+
+
 
 
 

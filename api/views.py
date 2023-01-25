@@ -10,6 +10,12 @@ from rest_framework.decorators import action
 class ItemViewSet(ModelViewSet):
     queryset         = Item.objects.all()
     serializer_class = ItemSerializer
+
+    def get_queryset(self):
+        search_term = self.request.query_params.get("search")
+        if search_term is not None:
+            results = Item.objects.filter(product__icontains=self.request.query_params.get("search"))
+        return results    
    
 # When you make a request for a list of items the ItemListSerializer is called.
     def get_serializer_class(self):
@@ -17,11 +23,8 @@ class ItemViewSet(ModelViewSet):
             return ItemListSerializer
         return super().get_serializer_class()
 
-    #@action(detail=False,methods=["get"])
-    #def lowstock(self,request):
-    #    items = self.get_queryset().filter(total_quantity<100)
-    #    serializer = self.get_serializer(items, many=True)
-    #    return Response(serializer.data,status=status.HTTP_200_ok)    
+       
+   
 
 class ItemListCreateView(ListCreateAPIView):
     serializer_class = ItemSerializer
@@ -37,6 +40,12 @@ class CategoryViewSet(ModelViewSet):
     queryset         = Category.objects.all()
     serializer_class = CategorySerializer
 
+    def get_queryset(self):
+        search_term = self.request.query_params.get("search")
+        if search_term is not None:
+            results = Category.objects.filter(title__icontains=self.request.query_params.get("search"))
+        return results    
+
 class ShipmentListCreateView(ListCreateAPIView):
     serializer_class = ShipmentListSerializer
    
@@ -50,6 +59,10 @@ class ShipmentListCreateView(ListCreateAPIView):
 class ShipmentListView(ListAPIView):
     queryset = Shipment.objects.all()
     serializer_class = ShipmentListSerializer
+#this is to override the get queryset to order the shipments in this list by the most recent
+    def get_queryset(self):
+        results=self.queryset.all()
+        return results.order_by('-date')
 
 class LowStockListView(ListAPIView):
     queryset = Item.objects.all()
@@ -57,3 +70,4 @@ class LowStockListView(ListAPIView):
 
     def get_queryset(self):
         return Item.objects.filter(amount__lt=100)   
+
