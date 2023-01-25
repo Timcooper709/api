@@ -49,7 +49,7 @@ class CategoryViewSet(ModelViewSet):
             results = Category.objects.filter(title__icontains=self.request.query_params.get("search"))
         else:
             results =Category.objects.all()
-            return results    
+        return results    
 
 class ShipmentListCreateView(ListCreateAPIView):
     serializer_class = ShipmentListSerializer
