@@ -1,5 +1,5 @@
-# api
-warehouse api
+#  Inventory Api
+This is an Inventory API that allows authenticated users to create, read update and destroy items and categories.  Users can also create shipments for items and see the remaining quantity of the item after it is shipped.  Users can view low stock items, search for items by product and search for category by title. A list of all shipments is available by item.  There is also a list of all shipments independent of items.
 
 
 ## Base URL:
@@ -199,6 +199,8 @@ POST api/categories/<int:category_pk>/items/
 	"shipments": []
 }
 ```
+
+
 ## delete a item
 delete a item.
 ### Request
@@ -211,6 +213,8 @@ DELETE api/items/<int:item_pk>/
 ```json
 204 No Content
 ```
+
+
 ## update a item
 update a item.
 ### Request
@@ -235,12 +239,15 @@ PATCH api/items/<int:item_pk>/
 	"shipments": []
 }
 ```    
+
+
 ## list of all categories
 list of all categories
 ### Request
 Required fields:None
 ```json
 GET api/categories
+```
 ### Response
 ```json
 200 OK
@@ -295,14 +302,17 @@ GET api/categories
 	}
 ]    
 ```
+
+
 ## Detail of one category
 Detail of one category
 ### Request
-GET api/categories/<int:category_pk>/
 Required fields:None
-```json
+
+GET api/categories/<int:category_pk>/
 ### Response
 ```json
+
 200 OK
 {
 	"pk": 3,
@@ -329,15 +339,19 @@ Required fields:None
 	]
 }
 ```
+
+
 ## Create a category
 Create a category
 ### Request
 POST api/categories/
 Required fields: title
+```json
 {
 	"title": "clothes"
-	}
-```json
+}
+```
+
 ### Response
 ```json
 201 CREATED
@@ -355,8 +369,8 @@ Required fields:
 ```json
 {
 	"title": "Cleaning Products"
-	}
-```json
+}
+```
 ### Response
 ```json
 200 OK
@@ -390,7 +404,7 @@ Delete a Category
 ### Request
 DELETE api/categories/<int:category_pk>/
 Required fields:None
-```json
+
 ### Response
 ```json
 204 NO CONTENT
@@ -400,7 +414,7 @@ List of shipments
 ### Request
 GET api/shipments/
 Required fields:None
-```json
+
 ### Response
 ```json
 200 OK
@@ -484,7 +498,8 @@ POST api/items/<int:item_pk>/shipments/
 		"address_line_one": "8514 Fake St",
 		"address_line_two": "Portland, OR 65241",
 		"tracking_number": "RA804894270US"
-	}
+}
+```
 ### Response
 ```json
 201 CREATED
@@ -505,7 +520,7 @@ List of shipments by item
 ### Request
 GET api/items/<int:item_pk>/shipments/
 Required fields:None
-```json
+
 ### Response
 ```json
 200 OK
@@ -539,7 +554,7 @@ List of low stock items with quantity below 100
 ### Request
 GET api/lowstock/
 Required fields:None
-```json
+
 ### Response
 ```json
 200 OK
@@ -575,7 +590,7 @@ Search for items by title
 ### Request
 GET api/items?search=<search-term>
 Required fields:None
-```json
+
 ### Response
 ```json
 [
@@ -592,7 +607,7 @@ Search for items by category
 ### Request
 Get api/categories?search=<search-term>
 Required fields:None
-```json
+
 ### Response
 ```json
 [
