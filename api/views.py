@@ -15,7 +15,10 @@ class ItemViewSet(ModelViewSet):
         search_term = self.request.query_params.get("search")
         if search_term is not None:
             results = Item.objects.filter(product__icontains=self.request.query_params.get("search"))
-        return results    
+        else:
+            results =Item.objects.all()
+        return results
+          
    
 # When you make a request for a list of items the ItemListSerializer is called.
     def get_serializer_class(self):
@@ -44,7 +47,9 @@ class CategoryViewSet(ModelViewSet):
         search_term = self.request.query_params.get("search")
         if search_term is not None:
             results = Category.objects.filter(title__icontains=self.request.query_params.get("search"))
-        return results    
+        else:
+            results =Category.objects.all()
+            return results    
 
 class ShipmentListCreateView(ListCreateAPIView):
     serializer_class = ShipmentListSerializer
