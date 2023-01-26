@@ -111,19 +111,19 @@ GET api/items/
 	{
 		"pk": 1,
 		"product": "Brake Pads",
-		"amount": 68,
+		"amount_received": 68,
 		"category": "Car Parts"
 	},
 	{
 		"pk": 2,
 		"product": "Oil Filter",
-		"amount": 2000,
+		"amount_received": 2000,
 		"category": "Car Parts"
 	},
 	{
 		"pk": 3,
 		"product": "Feul Pump",
-		"amount": 1000,
+		"amount_received": 1000,
 		"category": "Car Parts"
 	}
 ]
@@ -143,7 +143,7 @@ GET api/items/<int:item_pk>/
 	"product": "Playstation 5",
 	"manufacturer": "Sony",
 	"date_received": "2023-01-25T17:21:22.978499Z",
-	"amount": 200,
+	"amount_received": 200,
 	"item_description": "Price: $499 (standard), $399 (Digital Edition)\r\nCPU: 3.5GHz, 8-core AMD Zen 2.\r\nGPU: 10.3 teraflop RDNA 2 GPU.\r\nRAM: 16GB GDDR6.\r\nStorage: Custom 825GB SSD.\r\nExpansion: NVMe M.2 SSD slot.\r\nDisc drive: 4K Blu-ray player.\r\nSize: 15.4 x 10.2 x 4.1 inches.",
 	"category": "Electronics",
 	"shipments": [
@@ -180,7 +180,7 @@ POST api/categories/<int:category_pk>/items/
 	"pk":
 	"product": "Tires",
 	"manufacturer": "Michelin",
-	"amount": 125,
+	"amount_received": 125,
 	"item_description": "ALL-SEASON TIRES"
 		
 	}	
@@ -193,7 +193,7 @@ POST api/categories/<int:category_pk>/items/
 	"product": "Tires",
 	"manufacturer": "Michelin",
 	"date_received": "2023-01-25T19:38:37.862085Z",
-	"amount": 125,
+	"amount_received": 125,
 	"item_description": "ALL-SEASON TIRES",
 	"category": "Car Parts",
 	"shipments": []
@@ -233,7 +233,7 @@ PATCH api/items/<int:item_pk>/
 	"product": "Tires",
 	"manufacturer": "Goodyear",
 	"date_received": "2023-01-25T19:38:37.862085Z",
-	"amount": 125,
+	"amount_received": 125,
 	"item_description": "ALL-SEASON TIRES",
 	"category": "Car Parts",
 	"shipments": []
@@ -259,19 +259,19 @@ GET api/categories
 			{
 				"pk": 10,
 				"product": "Iphone 14 Pro Max",
-				"amount": 75,
+				"amount_received": 75,
 				"category": "Electronics"
 			},
 			{
 				"pk": 11,
 				"product": "Playstation 5",
-				"amount": 200,
+				"amount_received": 200,
 				"category": "Electronics"
 			},
 			{
 				"pk": 12,
 				"product": "Xbox Series X",
-				"amount": 800,
+				"amount_received": 800,
 				"category": "Electronics"
 			}
 		]
@@ -283,19 +283,19 @@ GET api/categories
 			{
 				"pk": 7,
 				"product": "Dog Food",
-				"amount": 85,
+				"amount_received": 85,
 				"category": "Pets"
 			},
 			{
 				"pk": 8,
 				"product": "Wet Cat Food",
-				"amount": 560,
+				"amount_received": 560,
 				"category": "Pets"
 			},
 			{
 				"pk": 9,
 				"product": "Tropical Flakes Fish Food",
-				"amount": 425,
+				"amount_received": 425,
 				"category": "Pets"
 			}
 		]
@@ -321,19 +321,19 @@ GET api/categories/<int:category_pk>/
 		{
 			"pk": 4,
 			"product": "Laundry Detergent",
-			"amount": 20,
+			"amount_received": 20,
 			"category": "Household Products"
 		},
 		{
 			"pk": 5,
 			"product": "Disinfectant Wipes",
-			"amount": 1000,
+			"amount_received": 1000,
 			"category": "Household Products"
 		},
 		{
 			"pk": 6,
 			"product": "Liquid All Purpose Cleaner",
-			"amount": 1250,
+			"amount_received": 1250,
 			"category": "Household Products"
 		}
 	]
@@ -381,19 +381,19 @@ Required fields:
 		{
 			"pk": 4,
 			"product": "Laundry Detergent",
-			"amount": 20,
+			"amount_received": 20,
 			"category": "Cleaning Products"
 		},
 		{
 			"pk": 5,
 			"product": "Disinfectant Wipes",
-			"amount": 1000,
+			"amount_received": 1000,
 			"category": "Cleaning Products"
 		},
 		{
 			"pk": 6,
 			"product": "Liquid All Purpose Cleaner",
-			"amount": 1250,
+			"amount_received": 1250,
 			"category": "Cleaning Products"
 		}
 	]
@@ -562,25 +562,25 @@ Required fields:None
 	{
 		"pk": 1,
 		"product": "Brake Pads",
-		"amount": 68,
+		"amount_received": 68,
 		"category": "Car Parts"
 	},
 	{
 		"pk": 4,
 		"product": "Laundry Detergent",
-		"amount": 20,
+		"amount_received": 20,
 		"category": "Cleaning Products"
 	},
 	{
 		"pk": 7,
 		"product": "Dog Food",
-		"amount": 85,
+		"amount_received": 85,
 		"category": "Pets"
 	},
 	{
 		"pk": 10,
 		"product": "Iphone 14 Pro Max",
-		"amount": 75,
+		"amount_received": 75,
 		"category": "Electronics"
 	}
 ]
@@ -597,7 +597,7 @@ Required fields:None
 	{
 		"pk": 10,
 		"product": "Iphone 14 Pro Max",
-		"amount": 75,
+		"amount_received": 75,
 		"category": "Electronics"
 	}
 ]
@@ -618,19 +618,19 @@ Required fields:None
 			{
 				"pk": 10,
 				"product": "Iphone 14 Pro Max",
-				"amount": 75,
+				"amount_received": 75,
 				"category": "Electronics"
 			},
 			{
 				"pk": 11,
 				"product": "Playstation 5",
-				"amount": 200,
+				"amount_received": 200,
 				"category": "Electronics"
 			},
 			{
 				"pk": 12,
 				"product": "Xbox Series X",
-				"amount": 800,
+				"amount_received": 800,
 				"category": "Electronics"
 			}
 		]

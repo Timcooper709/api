@@ -22,7 +22,7 @@ class Item(models.Model):
     product          = models.CharField(max_length=300, null=True, blank=True)      
     manufacturer     = models.CharField(max_length=300, null=True, blank=True)
     date_received    = models.DateTimeField(auto_now_add=True)
-    amount           = models.IntegerField(null=True, blank=True)
+    amount_received  = models.IntegerField(null=True, blank=True)
     item_description = models.TextField(null=True, blank=True)
      # foreginkey relates one model to another.
     category         = models.ForeignKey('Category', related_name='items', on_delete=models.CASCADE, null=True,blank=True) 
@@ -31,7 +31,7 @@ class Item(models.Model):
         return self.product
     @property
     def actual(self):
-        x = self.amount - self.shipments.aggregate(Sum('quantity_shipped')).get('quantity_shipped__sum')
+        x = self.amount_received - self.shipments.aggregate(Sum('quantity_shipped')).get('quantity_shipped__sum')
         return x
 
  

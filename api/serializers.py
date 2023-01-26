@@ -16,14 +16,14 @@ class ItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Item
-        fields = ['pk', 'product', 'manufacturer', 'date_received', 'amount', 'actual', 'item_description', 'category', 'shipments']
+        fields = ['pk', 'product', 'manufacturer', 'date_received', 'amount_received', 'actual', 'item_description', 'category', 'shipments']
         
 class ItemListSerializer(serializers.ModelSerializer):
     category = serializers.SlugRelatedField(read_only=True,slug_field="title")
 
     class Meta:
         model = Item
-        fields = ['pk', 'product', 'amount', 'category']   
+        fields = ['pk', 'product', 'amount_received', 'category']   
 
 class CategorySerializer(serializers.ModelSerializer):  
     items = ItemListSerializer(many=True, read_only=True)

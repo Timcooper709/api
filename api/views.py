@@ -84,5 +84,5 @@ class LowStockListView(ListAPIView):
     permission_classes = [IsAuthenticated] 
 
     def get_queryset(self):
-        return Item.objects.filter(amount__lt=100)   
+        return Item.objects.filter(amount_received__lt=100)   
 
