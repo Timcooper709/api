@@ -31,7 +31,7 @@ class Item(models.Model):
         return self.product
     @property
     def actual(self):
-        x = self.amount_received - self.shipments.aggregate(Sum('quantity_shipped')).get('quantity_shipped__sum')
+        x = self.amount_received- self.shipments.aggregate(Sum('quantity_shipped')).get('quantity_shipped__sum')
         return x
 
  
