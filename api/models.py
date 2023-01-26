@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.db.models import Sum
 
 
 # Create your models here.
@@ -28,6 +29,15 @@ class Item(models.Model):
     # This is why I see the Item product in admin. If not there PK would show.
     def __str__ (self):
         return self.product
+    @property
+    def actual(self):
+        x = self.amount - self.shipments.aggregate(Sum('quantity_shipped')).get('quantity_shipped__sum')
+        return x
+
+ 
+    
+    
+
 
 class Shipment(models.Model):
     attn             = models.CharField(max_length=200, null=True, blank=True)
@@ -38,16 +48,12 @@ class Shipment(models.Model):
      # foreginkey relates one model to another.
     item             = models.ForeignKey('Item', related_name='shipments', on_delete=models.CASCADE, null=True,blank=True) 
     date             = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    remaining_after_shipment = models.IntegerField(null=True, blank=True)  
     
     def __str__(self):
         # This is an f string 
         return f"{self.quantity_shipped} {self.item} was shipped {self.date}"  
 
-    @property
-    def remaining_after_shipment(self):
-        x = self.item.amount - self.quantity_shipped
-        return x
+
 
 
 

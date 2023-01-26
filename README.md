@@ -177,7 +177,7 @@ Required fields: product, manufacturer, amount, item description
 ```json
 POST api/categories/<int:category_pk>/items/
 {
-	
+	"pk":
 	"product": "Tires",
 	"manufacturer": "Michelin",
 	"amount": 125,

@@ -54,6 +54,7 @@ class CategoryViewSet(ModelViewSet):
         if search_term is not None:
             results = Category.objects.filter(title__icontains=self.request.query_params.get("search"))
         else:
+            
             results =Category.objects.all()
         return results    
 

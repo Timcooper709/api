@@ -16,7 +16,7 @@ class ItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Item
-        fields = ['pk', 'product', 'manufacturer', 'date_received', 'amount', 'item_description', 'category', 'shipments']
+        fields = ['pk', 'product', 'manufacturer', 'date_received', 'amount', 'actual', 'item_description', 'category', 'shipments']
         
 class ItemListSerializer(serializers.ModelSerializer):
     category = serializers.SlugRelatedField(read_only=True,slug_field="title")
@@ -37,4 +37,4 @@ class ShipmentListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Shipment
-        fields = ['pk', 'item', 'quantity_shipped', 'date', 'attn', 'address_line_one', 'address_line_two', 'tracking_number', 'remaining_after_shipment']                     
+        fields = ['pk', 'item', 'quantity_shipped', 'date', 'attn', 'address_line_one', 'address_line_two', 'tracking_number']                     
