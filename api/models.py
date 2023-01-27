@@ -29,15 +29,14 @@ class Item(models.Model):
     # This is why I see the Item product in admin. If not there PK would show.
     def __str__ (self):
         return self.product
+    
     @property
     def actual(self):
-        x = self.amount_received- self.shipments.aggregate(Sum('quantity_shipped')).get('quantity_shipped__sum')
-        return x
-
- 
-    
-    
-
+            if self.shipments.aggregate(Sum('quantity_shipped')).get('quantity_shipped__sum') is not None:
+                x = self.amount_received  - self.shipments.aggregate(Sum('quantity_shipped')).get('quantity_shipped__sum')
+            else:
+                x =0 
+            return x
 
 class Shipment(models.Model):
     attn             = models.CharField(max_length=200, null=True, blank=True)

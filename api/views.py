@@ -30,8 +30,6 @@ class ItemViewSet(ModelViewSet):
         return super().get_serializer_class()
 
        
-   
-
 class ItemListCreateView(ListCreateAPIView):
     serializer_class = ItemSerializer
     permission_classes = [IsAuthenticated]
